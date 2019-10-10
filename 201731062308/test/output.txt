@@ -1,0 +1,9 @@
+characters:327
+words:63
+lines:9
+I          |    4
+is         |    3
+more       |    3
+important  |    3
+than       |    3
+like       |    3
