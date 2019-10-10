@@ -17,7 +17,7 @@ namespace WordCount
             Process count = new excute();
             string path = null;//读入文件路径标志
             string outPath = null;//写出文件路径标志
-            string GetExNum = null;//限制输出个数的值
+            //string GetExNum = null;//限制输出个数的值
             string GetNum = null;//指定频数的值
             for (int i = 0; i < args.Length; i++)
             {
@@ -26,9 +26,9 @@ namespace WordCount
                     case "-i":
                         path = args[i + 1];//寻找是否找到输入文件路径
                         break;
-                    case "-m"://-m参数与数字配套使用，用于设置词组长度
+                    /*case "-m"://没有实现
                         GetExNum = args[i + 1];
-                        break;
+                        break;*/
                     case "-n"://-n参数与数字搭配使用，用于限制最终输出的单词的个数
                         GetNum = args[i + 1];
                         break;
@@ -49,21 +49,7 @@ namespace WordCount
                 sw.WriteLine(String.Format("characters:" + count.CountChar(path)));
                 sw.WriteLine(String.Format("words:" + count.CountWord(path)));
                 sw.WriteLine(String.Format("lines:" + count.CountLine(path)));
-                /*if (GetExNum != null)//将查找指定频数的结果输出，并写入文件
-                {
-                    Dictionary<string, int> dictionary = count.CountFrequency(path);
-                    dictionary = count.SortDictionary_Desc(dictionary);
-                    Console.WriteLine("频数为" + GetExNum + "单词如下：");
-                    foreach (KeyValuePair<string, int> dic in dictionary)
-                    {
-                        if (dic.Value == int.Parse(GetExNum))
-                        {
-                            sw.WriteLine(String.Format("{0,-10} |{2,5}", "单词：" + dic.Key, 0, "频数：" + dic.Value));
-                            Console.WriteLine(String.Format("{0,-10} |{2,5}", "单词：" + dic.Key, 0, "频数：" + dic.Value));
-                        }
-
-                    }
-                }*/
+                
                 if (GetNum != null)//将输出指定数量的单词数，并写入文件
                 {
                     int i = 0;
